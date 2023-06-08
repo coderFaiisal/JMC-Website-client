@@ -32,9 +32,9 @@ const HomeEvents = () => {
             />
           </CardHeader>
           <CardBody>
-            <Link>
+            <Link to={`/events/${1}`}>
               <Typography className="text-xl text-yellow-800 hover:underline underline-offset-4">
-                JMC Media Buzz: Spring 2022
+                JMC Media Buzz: Spring 2023
               </Typography>
             </Link>
             <p className="my-4">Online</p>
@@ -63,9 +63,9 @@ const HomeEvents = () => {
             />
           </CardHeader>
           <CardBody>
-            <Link>
+            <Link to={`/events/${2}`}>
               <Typography className="text-xl text-yellow-800 hover:underline underline-offset-4">
-                JMC Media Buzz: Spring 2022
+                JMC Media Buzz: FAll 2022
               </Typography>
             </Link>
             <p className="my-4">DSC</p>
@@ -94,7 +94,7 @@ const HomeEvents = () => {
             />
           </CardHeader>
           <CardBody>
-            <Link>
+            <Link to={`/events/${3}`}>
               <Typography className="text-xl text-yellow-800 hover:underline underline-offset-4">
                 JMC Media Buzz: Spring 2022
               </Typography>
@@ -125,9 +125,9 @@ const HomeEvents = () => {
             />
           </CardHeader>
           <CardBody>
-            <Link>
+            <Link to={`/events/${4}`}>
               <Typography className="text-xl text-yellow-800 hover:underline underline-offset-4">
-                JMC Media Buzz: Spring 2022
+                JMC Media Buzz: Fall 2021
               </Typography>
             </Link>
             <p className="my-4">Virtually</p>

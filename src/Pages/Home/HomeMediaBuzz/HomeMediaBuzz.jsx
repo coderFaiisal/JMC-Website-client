@@ -1,5 +1,6 @@
 import React from "react";
 import mediaBuzzImg from "../../../assets/Media Buzz.jpg";
+
 import {
   Card,
   CardHeader,
@@ -23,7 +24,7 @@ const HomeMediaBuzz = () => {
             <img
               src={mediaBuzzImg}
               alt="image"
-              className="w-full h-full object-fit"
+              className="w-full h-full object-fit hover:scale-150 transition duration-300 ease-in-out"
             />
           </Link>
         </CardHeader>

@@ -7,45 +7,74 @@ const SITEMAP = [
   {
     title: "Get in Touch",
     links: [
-      <Link to='/contact'>Contact</Link>,
-      "Privacy Statement",
-      "Report Copyright Infringement",
-      "Report on Security Issues",
-      "Newsletters",
-      
+      <Link to="/contact">Contact</Link>,
+      <Link to="/reportIssues">Report on Website Issues</Link>,
+      <a href="https://newsletter.daffodilvarsity.edu.bd/" target="_blank">
+        Newsletters
+      </a>,
+      <a href="https://campuslife.daffodil.university/" target="_blank">
+        Photo Gallary
+      </a>,
     ],
   },
   {
     title: "Branding",
     links: [
-      "DIU Branding",
-      "Career Opportunities",
-      "Blog",
-      "Photo Gallery",
-      "DIU News",
-      "DIU Press",
-      "Employability 360",
-
-      "eTender",
-      "Artofliving",
+      <a href="http://bd.daffodil.family/" target="_blank">
+        DIU Branding
+      </a>,
+      <a href="http://blog.daffodilvarsity.edu.bd/" target="_blank">
+        Blog
+      </a>,
+      <a href="https://the-prominent.com/" target="_blank">
+        The Prominent
+      </a>,
+      <a href="https://artofliving.social/" target="_blank">
+        Art of living
+      </a>,
+      <a href="http://employability.daffodilvarsity.edu.bd/" target="_blank">
+        Employability 360
+      </a>,
     ],
   },
   {
     title: "Useful Links",
     links: [
-      "skill.jobs",
-      "Internship Portal",
-      "Foundation Day",
-      "Convocation",
-      "Brochure",
-      "Prospectus",
-      "Forms",
-      "Brand Documents",
+      <a href="https://skill.jobs/" target="_blank">
+        {" "}
+        Skill Jobs
+      </a>,
+      <a
+        href="http://internship.daffodilvarsity.edu.bd/?app=home"
+        target="_blank"
+      >
+        Internship Portal
+      </a>,
+      <a href="https://convocation.daffodilvarsity.edu.bd/" target="_blank">
+        Convocation
+      </a>,
+      <a href="https://daffodilvarsity.edu.bd/prospectus" target="_blank">
+        Prospectus
+      </a>,
+      <a href="https://daffodilvarsity.edu.bd/article/forms" target="_blank">
+        Forms
+      </a>,
     ],
   },
   {
-    title: "Products",
-    links: ["Apps", "Location Map", "DIU IT", "FAQ",],
+    title: "More",
+    links: [
+      <a href="https://daffodilvarsity.edu.bd/article/apps" target="_blank">
+        Apps
+      </a>,
+      <Link to="location">Location Map</Link>,
+      <a href="https://it.daffodilvarsity.edu.bd/#team-2" target="_blank">
+        DIU IT
+      </a>,
+      <a href="https://daffodilvarsity.edu.bd/faq" target="_blank">
+        FAQ
+      </a>,
+    ],
   },
 ];
 

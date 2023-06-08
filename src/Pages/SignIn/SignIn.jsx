@@ -13,7 +13,10 @@ import {
 } from "@material-tailwind/react";
 
 const SignIn = () => {
-  const { loginUser, loginWithGoogle, resetPassword } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, resetPassword } =
+    useContext(AuthContext);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen((cur) => !cur);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -22,24 +25,22 @@ const SignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen((cur) => !cur);
 
-  //login with email & pass
+  //signin with email & pass
   const handleSignInForm = (data) => {
     const { email, password } = data;
 
-    loginUser(email, password)
+    signInUser(email, password)
       .then((result) => {
-        console.log(result.user)
+        console.log(result.user);
         navigate(from, { replace: true });
       })
       .catch((err) => console.log(err));
   };
 
-  //login with google
-  const handleGoogleLogin = () => {
-    loginWithGoogle()
+  //signin with google
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
       .then((result) => {
         console.log(result);
         navigate(from, { replace: true });
@@ -52,7 +53,6 @@ const SignIn = () => {
     const form = e.target;
     const email = form.resetEmail.value;
     console.log(email);
-    
 
     resetPassword(email)
       .then(() => {
@@ -109,7 +109,12 @@ const SignIn = () => {
             {errors.password && (
               <p className="text-red-500 text-xs">{errors.password.message}</p>
             )}
-             <p onClick={handleOpen} className="text-xs hover:link text-blue-600 hover:underline underline-offset-2 cursor-pointer inline w-2/5">Forget password?</p>
+            <p
+              onClick={handleOpen}
+              className="text-xs hover:link text-blue-600 hover:underline underline-offset-2 cursor-pointer inline w-2/5"
+            >
+              Forget password?
+            </p>
           </div>
           <input
             type="submit"
@@ -119,7 +124,7 @@ const SignIn = () => {
           <Typography color="gray" className="mt-4 text-center font-normal">
             Haven't an account?
             <Link
-              to="/register"
+              to="/signup"
               className="font-medium text-blue-500 transition-colors hover:text-blue-700"
             >
               {" "}
@@ -130,31 +135,30 @@ const SignIn = () => {
       </Card>
 
       {/* Modal section */}
-        <Dialog
-          size="xs"
-          open={open}
-          handler={handleOpen}
-          className="bg-transparent shadow-none"
-        >
-          <Card className="mx-auto w-full max-w-[24rem]">
-            <Typography className="mt-4 ml-4">Password Reset Email</Typography>
+      <Dialog
+        size="xs"
+        open={open}
+        handler={handleOpen}
+        className="bg-transparent shadow-none"
+      >
+        <Card className="mx-auto w-full max-w-[24rem]">
+          <Typography className="mt-4 ml-4">Password Reset Email</Typography>
 
-            <form onSubmit={handlePasswordReset}>
-              <CardBody className="flex flex-col gap-4">
-                <Input required label="Email" name="resetEmail" size="lg" />
-              </CardBody>
-              <CardFooter className="pt-0 text-center">
-                <input
-                  className="bg-blue-700 px-6 py-1 text-white rounded-xl "
-                  onClick={handleOpen}
-                  type="submit"
-                  value="Send"
-                />
-              </CardFooter>
-            </form>
-          </Card>
-        </Dialog>
-      
+          <form onSubmit={handlePasswordReset}>
+            <CardBody className="flex flex-col gap-4">
+              <Input required label="Email" name="resetEmail" size="lg" />
+            </CardBody>
+            <CardFooter className="pt-0 text-center">
+              <input
+                className="bg-blue-700 px-6 py-1 text-white rounded-xl "
+                onClick={handleOpen}
+                type="submit"
+                value="Send"
+              />
+            </CardFooter>
+          </form>
+        </Card>
+      </Dialog>
     </div>
   );
 };

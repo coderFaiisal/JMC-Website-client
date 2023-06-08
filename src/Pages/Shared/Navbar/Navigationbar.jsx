@@ -122,7 +122,7 @@ const NavListMenu = () => {
   };
 
   const renderItems = navListMenuItems.map((item, idx) => (
-    <a href="#" key={idx}>
+    <Link key={idx}>
       <MenuItem>
         <Typography
           variant="h6"
@@ -132,7 +132,7 @@ const NavListMenu = () => {
           {item}
         </Typography>
       </MenuItem>
-    </a>
+    </Link>
   ));
 
   return (
@@ -141,7 +141,6 @@ const NavListMenu = () => {
         <MenuHandler>
           <Typography
             as="a"
-            href="#"
             variant="small"
             className="font-normal text-lg"
           >

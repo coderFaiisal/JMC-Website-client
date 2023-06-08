@@ -96,6 +96,86 @@ const MediaBuzz = () => {
             </CardBody>
           </Card>
         </Link>
+        <Link to={`/mediaBuzz/${4}`}>
+          <Card className="max-w-[24rem] rounded-none overflow-hidden my-12">
+            <CardHeader
+              floated={false}
+              shadow={false}
+              color="transparent"
+              className="m-0 rounded-none hover:scale-110 transform ease-in-out duration-300"
+            >
+              <img
+                src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="ui/ux review check"
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography className="text-2xl font-serif text-yellow-800 hover:underline underline-offset-4">
+                Spring 2023
+              </Typography>
+            </CardBody>
+          </Card>
+        </Link>
+        <Link to={`/mediaBuzz/${5}`}>
+          <Card className="max-w-[24rem] rounded-none overflow-hidden my-12">
+            <CardHeader
+              floated={false}
+              shadow={false}
+              color="transparent"
+              className="m-0 rounded-none hover:scale-110 transform ease-in-out duration-300"
+            >
+              <img
+                src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="ui/ux review check"
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography className="text-2xl font-serif text-yellow-800 hover:underline underline-offset-4">
+                Spring 2023
+              </Typography>
+            </CardBody>
+          </Card>
+        </Link>
+        <Link to={`/mediaBuzz/${6}`}>
+          <Card className="max-w-[24rem] rounded-none overflow-hidden my-12">
+            <CardHeader
+              floated={false}
+              shadow={false}
+              color="transparent"
+              className="m-0 rounded-none hover:scale-110 transform ease-in-out duration-300"
+            >
+              <img
+                src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="ui/ux review check"
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography className="text-2xl font-serif text-yellow-800 hover:underline underline-offset-4">
+                Spring 2023
+              </Typography>
+            </CardBody>
+          </Card>
+        </Link>
+        <Link to={`/mediaBuzz/${7}`}>
+          <Card className="max-w-[24rem] rounded-none overflow-hidden my-12">
+            <CardHeader
+              floated={false}
+              shadow={false}
+              color="transparent"
+              className="m-0 rounded-none hover:scale-110 transform ease-in-out duration-300"
+            >
+              <img
+                src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="ui/ux review check"
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography className="text-2xl font-serif text-yellow-800 hover:underline underline-offset-4">
+                Spring 2023
+              </Typography>
+            </CardBody>
+          </Card>
+        </Link>
       </div>
     </section>
   );

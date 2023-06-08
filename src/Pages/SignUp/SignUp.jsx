@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { Card, Input, Checkbox, Typography } from "@material-tailwind/react";
 import { AuthContext } from "../../Context/AuthProvider";
 
-const Register = () => {
+const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const Register = () => {
   } = useForm();
 
   //create user with email & pass
-  const handleRegisterForm = (data) => {
+  const handleSignUpForm = (data) => {
     const { name, email, password } = data;
     const userInfo = {
       displayName: name,
@@ -44,7 +44,7 @@ const Register = () => {
           Sign Up
         </Typography>
         <form
-          onSubmit={handleSubmit(handleRegisterForm)}
+          onSubmit={handleSubmit(handleSignUpForm)}
           className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
         >
           <div className="mb-4 flex flex-col gap-6">
@@ -118,7 +118,7 @@ const Register = () => {
           <input
             type="submit"
             className="mt-6 bg-blue-700 block w-full text-white py-2 rounded-lg "
-            value="Register"
+            value="Sign Up"
           />
           <Typography color="gray" className="mt-4 text-center font-normal">
             Already have an account?{" "}
@@ -135,4 +135,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;

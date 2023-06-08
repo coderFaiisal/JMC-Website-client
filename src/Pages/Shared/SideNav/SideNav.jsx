@@ -1,12 +1,10 @@
 import React from "react";
 import { List, ListItem, ListItemPrefix } from "@material-tailwind/react";
 import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
+  CalendarDaysIcon,
+  IdentificationIcon,
+  VideoCameraIcon,
+  PhotoIcon,
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 
@@ -14,46 +12,54 @@ const SideNav = () => {
   return (
     <div className="">
       <List className="grid grid-cols-3 md:grid-cols-1">
-        <Link to='/dashboard'>
+        <Link to="/dashboard/addMediaBuzzVideos">
           <ListItem>
             <ListItemPrefix>
-              <PresentationChartBarIcon className="h-5 w-5" />
+              <VideoCameraIcon className="h-5 w-5" />
             </ListItemPrefix>
-            Dashboard
+            Add Media Buzz Video
           </ListItem>
         </Link>
-        <ListItem>
-          <ListItemPrefix>
-            <ShoppingBagIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          E-Commerce
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Inbox
-        </ListItem>
-        <Link to="/dashboard/allUsers">
+        <Link to="/dashboard/addMediaBuzzPhotos">
           <ListItem>
             <ListItemPrefix>
-              <UserCircleIcon className="h-5 w-5" />
+              <PhotoIcon className="h-5 w-5" />
             </ListItemPrefix>
-            All Users
+            Add Media Buzz Photo
           </ListItem>
         </Link>
-        <ListItem>
-          <ListItemPrefix>
-            <Cog6ToothIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Settings
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <PowerIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Log Out
-        </ListItem>
+        <Link to="/dashboard/addMediaBuzzInfo">
+          <ListItem>
+            <ListItemPrefix>
+              <IdentificationIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Add Media Buzz Others Info
+          </ListItem>
+        </Link>
+        <Link to="/dashboard/addEvent">
+          <ListItem>
+            <ListItemPrefix>
+              <CalendarDaysIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Add Event
+          </ListItem>
+        </Link>
+        <Link to="/dashboard/showreel">
+          <ListItem>
+            <ListItemPrefix>
+              <VideoCameraIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Add Showreel
+          </ListItem>
+        </Link>
+        <Link>
+          <ListItem>
+            <ListItemPrefix>
+              <IdentificationIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Add Others
+          </ListItem>
+        </Link>
       </List>
     </div>
   );

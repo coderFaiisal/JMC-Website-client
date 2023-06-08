@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomeMediaBuzz from "../HomeMediaBuzz/HomeMediaBuzz";
 import Banner from "../Banner/Banner";
 import HomeShowreel from "../HomeShowreel/HomeShowreel";
@@ -8,6 +8,9 @@ import HomeQuickLink from "../HomeQuickLink/HomeQuickLink";
 import HomeOnlineCourse from "../HomeOnlineCourse/HomeOnlineCourse";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Banner></Banner>
