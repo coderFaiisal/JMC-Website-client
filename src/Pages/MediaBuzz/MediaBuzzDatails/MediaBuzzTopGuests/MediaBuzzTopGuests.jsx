@@ -29,7 +29,7 @@ const MediaBuzzTopGuests = ({ guests, refetch, isAdmin, id }) => {
       imgURL: data.imgURL,
       designation: data.guestDesignation,
     };
-    fetch(`http://localhost:5000/api/v1/mediaBuzz/addGuest/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/mediaBuzz/addGuest/${id}`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

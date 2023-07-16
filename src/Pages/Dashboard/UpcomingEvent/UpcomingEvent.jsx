@@ -55,7 +55,7 @@ const UpcomingEvent = () => {
       price: eventPrice,
     };
 
-    fetch("http://localhost:5000/api/v1/upcomingEvent/createEvent", {
+    fetch("https://jmc-web-server.vercel.app/api/v1/upcomingEvent/createEvent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

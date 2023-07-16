@@ -30,7 +30,7 @@ const MediaBuzzDetails = () => {
     queryKey: ["mediaBuzz"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/api/v1/mediaBuzz/${mediaBuzzId?.id}`
+        `https://jmc-web-server.vercel.app/api/v1/mediaBuzz/${mediaBuzzId?.id}`
       );
       const data = await res.json();
       return data;

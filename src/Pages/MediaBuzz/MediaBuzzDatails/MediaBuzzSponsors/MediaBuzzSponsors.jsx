@@ -25,7 +25,7 @@ const MediaBuzzSponsors = ({ sponsors, refetch, isAdmin, id }) => {
     const payloadData = {
       imgURL: data.imgURL,
     };
-    fetch(`http://localhost:5000/api/v1/mediaBuzz/addSponsors/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/mediaBuzz/addSponsors/${id}`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

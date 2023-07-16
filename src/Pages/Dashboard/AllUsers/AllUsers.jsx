@@ -7,14 +7,14 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/v1/users");
+      const res = await fetch("https://jmc-web-server.vercel.app/api/v1/users");
       const data = await res.json();
       return data;
     },
   });
 
   const handleMakeAdmin = (id) => {
-    fetch(`http://localhost:5000/api/v1/users/makeAdmin/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/users/makeAdmin/${id}`, {
       method: "PATCH",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -31,7 +31,7 @@ const AllUsers = () => {
   };
 
   const handleDeleteAdmin = (id) => {
-    fetch(`http://localhost:5000/api/v1/users/deleteAdmin/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/users/deleteAdmin/${id}`, {
       method: "PATCH",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

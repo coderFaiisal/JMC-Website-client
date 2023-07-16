@@ -23,7 +23,7 @@ const PreviousEventDetails = () => {
     queryKey: ["previousEvent"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/api/v1/previousEvent/${eventId?.id}`
+        `https://jmc-web-server.vercel.app/api/v1/previousEvent/${eventId?.id}`
       );
       const data = await res.json();
       return data;

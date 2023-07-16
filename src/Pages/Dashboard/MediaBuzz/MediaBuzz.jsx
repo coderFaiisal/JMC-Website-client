@@ -103,7 +103,7 @@ const MediaBuzz = () => {
       testimonials,
     };
 
-    fetch("http://localhost:5000/api/v1/mediaBuzz/createMediaBuzz", {
+    fetch("https://jmc-web-server.vercel.app/api/v1/mediaBuzz/createMediaBuzz", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

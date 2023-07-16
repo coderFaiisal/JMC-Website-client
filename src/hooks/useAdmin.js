@@ -7,7 +7,7 @@ const useAdmin = (email) => {
     if (email) {
 
       fetch(
-        `http://localhost:5000/api/v1/users/admin/${email}`
+        `https://jmc-web-server.vercel.app/api/v1/users/admin/${email}`
       )
         .then((res) => res.json())
         .then((data) => {

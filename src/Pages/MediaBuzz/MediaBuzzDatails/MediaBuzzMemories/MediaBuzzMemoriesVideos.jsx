@@ -28,7 +28,7 @@ const MediaBuzzMemoriesVideos = ({ memories, refetch, isAdmin, id }) => {
     const videoURL = {
       url: videoId,
     };
-    fetch(`http://localhost:5000/api/v1/mediaBuzz/addMemoriesVideo/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/mediaBuzz/addMemoriesVideo/${id}`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

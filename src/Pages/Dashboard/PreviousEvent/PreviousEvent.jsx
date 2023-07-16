@@ -66,7 +66,7 @@ const PreviousEvent = () => {
       testimonials,
     };
 
-    fetch("http://localhost:5000/api/v1/previousEvent/createEvent", {
+    fetch("https://jmc-web-server.vercel.app/api/v1/previousEvent/createEvent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -32,7 +32,7 @@ const MediaBuzzTopEvents = ({ eventSessions, refetch, isAdmin, id }) => {
       photos: data.photoURL,
       videos: data.videoURL,
     };
-    fetch(`http://localhost:5000/api/v1/mediaBuzz/addTopEvent/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/mediaBuzz/addTopEvent/${id}`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

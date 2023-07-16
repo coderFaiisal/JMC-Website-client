@@ -33,14 +33,14 @@ const PreviousEvent = () => {
   } = useQuery({
     queryKey: ["previousEvents"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/v1/previousEvent");
+      const res = await fetch("https://jmc-web-server.vercel.app/api/v1/previousEvent");
       const data = await res.json();
       return data;
     },
   });
 
   const handleDeleteEvent = (id) => {
-    fetch(`http://localhost:5000/api/v1/previousEvent/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/previousEvent/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

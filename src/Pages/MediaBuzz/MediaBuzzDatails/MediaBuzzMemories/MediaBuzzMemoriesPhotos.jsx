@@ -35,7 +35,7 @@ const MediaBuzzMemoriesPhotos = ({ memories, refetch, isAdmin, id }) => {
     const photoURL = {
       url: data.photoURL,
     };
-    fetch(`http://localhost:5000/api/v1/mediaBuzz/addMemoriesPhoto/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/mediaBuzz/addMemoriesPhoto/${id}`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

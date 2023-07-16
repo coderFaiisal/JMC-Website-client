@@ -4,7 +4,7 @@ const useToken = (email) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/api/v1/users/jwt?email=${email}`)
+      fetch(`https://jmc-web-server.vercel.app/api/v1/users/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.accessToken) {

@@ -35,7 +35,7 @@ const MediaBuzzTestimonials = ({ testimonials, refetch, isAdmin, id }) => {
       message: data.message,
       designation: data.designation,
     };
-    fetch(`http://localhost:5000/api/v1/mediaBuzz/addTestimonial/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/mediaBuzz/addTestimonial/${id}`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

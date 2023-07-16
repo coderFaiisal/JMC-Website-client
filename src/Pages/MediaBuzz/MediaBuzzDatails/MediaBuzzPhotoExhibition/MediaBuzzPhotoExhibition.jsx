@@ -39,7 +39,7 @@ const MediaBuzzPhotoExhibition = ({
     const photoURL = {
       url: data.photoURL,
     };
-    fetch(`http://localhost:5000/api/v1/mediaBuzz/addExhibitionPhoto/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/mediaBuzz/addExhibitionPhoto/${id}`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

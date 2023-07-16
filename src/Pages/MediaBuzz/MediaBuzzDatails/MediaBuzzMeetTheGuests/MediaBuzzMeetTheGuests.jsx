@@ -31,7 +31,7 @@ const MediaBuzzMeetTheGuests = ({
     const payloadData = {
       videoURL: videoId,
     };
-    fetch(`http://localhost:5000/api/v1/mediaBuzz/addMeetTheGuests/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/mediaBuzz/addMeetTheGuests/${id}`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

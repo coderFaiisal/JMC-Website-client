@@ -44,7 +44,7 @@ const SignUp = () => {
     const saveUser = (name, email) => {
       const user = { name, email, role: "user" };
 
-      fetch("http://localhost:5000/api/v1/users/createUser", {
+      fetch("https://jmc-web-server.vercel.app/api/v1/users/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -36,14 +36,14 @@ const UpcomingEvent = () => {
   } = useQuery({
     queryKey: ["upcomingEvents"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/v1/upcomingEvent");
+      const res = await fetch("https://jmc-web-server.vercel.app/api/v1/upcomingEvent");
       const data = await res.json();
       return data;
     },
   });
 
   const handleDeleteEvent = (id) => {
-    fetch(`http://localhost:5000/api/v1/upcomingEvent/${id}`, {
+    fetch(`https://jmc-web-server.vercel.app/api/v1/upcomingEvent/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
