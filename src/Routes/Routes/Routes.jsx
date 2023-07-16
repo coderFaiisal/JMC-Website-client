@@ -4,11 +4,9 @@ import Events from "../../Pages/Events/Events/Events";
 import Showreel from "../../Pages/Showreel/Showreel/Showreel";
 import NotFound from "../../Pages/NotFound/NotFound";
 import Home from "../../Pages/Home/Home/Home";
-import MediaBuzzHome from "../../Pages/MediaBuzz/MediaBuzzHome/MediaBuzzHome";
-import MediaBuzzDetails from "../../Pages/MediaBuzz/MediaBuzzDatails/MediaBuzzDetails";
+
 import SignUp from "../../Pages/SignUp/SignUp";
 import SignIn from "../../Pages/SignIn/SignIn";
-import EventDetails from "../../Pages/Events/EventDetails/EventDetails";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Contact from "../../Pages/Shared/Footer/FooterComponents/Contact";
 import ReportIssues from "../../Pages/Shared/Footer/FooterComponents/ReportIssues";
@@ -17,7 +15,18 @@ import QuickLinkCordinator from "../../Pages/Home/HomeQuickLink/QuickLinkCordina
 import TalentHunt from "../../Pages/TalentHunt/TalentHunt";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import EventRegistration from "../../Pages/Events/EventRegistration/EventRegistration";
-import AddMediaBuzzVideos from "../../Pages/Dashboard/addMediaBuzzVideos/AddMediaBuzzVideos";
+import UpcomingEvent from "../../Pages/Dashboard/UpcomingEvent/UpcomingEvent";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import PreviousEvent from "../../Pages/Dashboard/PreviousEvent/PreviousEvent";
+import UpcomingEventDetails from "../../Pages/Events/UpcomingEvent/UpcomingEventDetails";
+import PreviousEventDetails from "../../Pages/Events/PreviousEvent/PreviousEventDetails";
+import MediaBuzz from "../../Pages/Dashboard/MediaBuzz/MediaBuzz";
+import MediaBuzzMain from "../../Pages/MediaBuzz/MediaBuzzMain/MediaBuzzMain";
+import MediaBuzzTopEventDetails from "../../Pages/MediaBuzz/MediaBuzzDatails/MediaBuzzTopEvents/MediaBuzzTopEventDetails/MediaBuzzTopEventDetails";
+import MediaBuzzDetails from "../../Pages/MediaBuzz/MediaBuzzDatails/MediaBuzzDetails/MediaBuzzDetails";
+import About from "../../Pages/About/About";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -29,20 +38,32 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
         path: "/mediaBuzz",
-        element: <MediaBuzzHome></MediaBuzzHome>,
+        element: <MediaBuzzMain></MediaBuzzMain>,
       },
       {
         path: "/mediaBuzz/:id",
         element: <MediaBuzzDetails></MediaBuzzDetails>,
       },
       {
+        path: "/mediaBuzzTopEventDetails/:id/:eventId",
+        element: <MediaBuzzTopEventDetails></MediaBuzzTopEventDetails>,
+      },
+      {
         path: "/events",
         element: <Events></Events>,
       },
       {
-        path: "/events/:id",
-        element: <EventDetails></EventDetails>,
+        path: "/api/v1/upcomingEvent/:id",
+        element: <UpcomingEventDetails></UpcomingEventDetails>,
+      },
+      {
+        path: "/api/v1/previousEvent/:id",
+        element: <PreviousEventDetails></PreviousEventDetails>,
       },
       {
         path: "/eventRegistration/:id",
@@ -91,17 +112,31 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <PrivateRoute>
-        <DashboardLayout></DashboardLayout>
+        <AdminRoute>
+          <DashboardLayout></DashboardLayout>
+        </AdminRoute>
       </PrivateRoute>
     ),
     children: [
       {
-        path: "/dashboard/addMediaBuzzVideos",
-        element: (
-          <PrivateRoute>
-            <AddMediaBuzzVideos></AddMediaBuzzVideos>
-          </PrivateRoute>
-        ),
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/dashboard/allUsers",
+        element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "/dashboard/upcomingEvent",
+        element: <UpcomingEvent></UpcomingEvent>,
+      },
+      {
+        path: "/dashboard/previousEvent",
+        element: <PreviousEvent></PreviousEvent>,
+      },
+      {
+        path: "/dashboard/mediaBuzz",
+        element: <MediaBuzz></MediaBuzz>,
       },
     ],
   },

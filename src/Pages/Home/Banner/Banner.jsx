@@ -13,9 +13,10 @@ const Banner = () => {
         <source src={promo}></source>
         {/* <source src="https://player.vimeo.com/progressive_redirect/playback/833365091/rendition/360p/file.mp4?loc=external&oauth2_token_id=57447761&signature=82e19aafca81d7888203e19255ddbe4a4a8c5b7d9aa6b5f55b6c2f01437c75bd" type="video/mp4" /> */}
       </video>
-      <div className="relative z-10 min-h-screen flex justify-center items-center text-white text-3xl md:text-4xl lg:text-6xl font-bold text-center font-mono">
-        Journalism <br />
-        Media & Communication
+      <div className="relative z-10 min-h-screen flex justify-center items-center text-white text-2xl md:text-3xl lg:text-4xl font-bold text-center ">
+        Department <br />
+        of <br />
+        Journalism Media & Communication
       </div>
     </div>
   );

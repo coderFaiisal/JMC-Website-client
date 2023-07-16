@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Contact = () => {
   return (
     <div className="my-12 mx-auto w-2/3 grid gap-2">
-      <h1 className="text-center text-3xl text-blue-600 mb-4 font-serif">
+      <h1 className="text-center text-3xl text-blue-600 mb-4 ">
         Contact Information
       </h1>
       <h2 className="text-xl font-"> Daffodil International University</h2>

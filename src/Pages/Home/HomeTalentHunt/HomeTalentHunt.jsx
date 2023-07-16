@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const HomeTalentHunt = () => {
   return (
-    <div className="mt-16">
+    <div className="">
       <Card
         shadow={false}
         className="relative grid w-full rounded-none items-end justify-center overflow-hidden text-center"
@@ -23,14 +23,14 @@ const HomeTalentHunt = () => {
           <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
         </CardHeader>
         <CardBody className="relative py-14 px-6 md:px-12">
-          <Typography className="mb-6 text-5xl text-white font-bold leading-[1.5] capitalize font-serif">
+          <Typography className="mb-6 text-5xl text-white font-bold leading-[1.5] capitalize ">
             Want to be a media star?
           </Typography>
-          <Typography className="text-white font-mono text-3xl font-bold">
+          <Typography className="text-white  text-3xl font-bold">
             Confirm Your Sit
           </Typography>
           <Link to='/talent'>
-            <button className="mt-6 bg-white text-black hover:bg-black shadow-sm shadow-white hover:text-white w-36 h-10 font-serif">
+            <button className="mt-6 bg-white text-black hover:bg-black shadow-sm shadow-white hover:text-white w-36 h-10 ">
               Registration
             </button>
           </Link>

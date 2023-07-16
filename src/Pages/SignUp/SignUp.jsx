@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { Card, Input, Checkbox, Typography } from "@material-tailwind/react";
 import { AuthContext } from "../../Context/AuthProvider";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
+
+  if (token) {
+    navigate("/");
+  }
 
   const {
     register,
@@ -25,16 +32,30 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result;
-
         updateUserProfile(userInfo)
           .then(() => {
+            saveUser(name, email);
             toast.success("User Created Successfully");
-            navigate("/");
           })
           .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
+
+    const saveUser = (name, email) => {
+      const user = { name, email, role: "user" };
+
+      fetch("http://localhost:5000/api/v1/users/createUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setCreatedUserEmail(email);
+        });
+    };
   };
 
   return (
@@ -117,7 +138,7 @@ const SignUp = () => {
           )}
           <input
             type="submit"
-            className="mt-6 bg-blue-700 block w-full text-white py-2 rounded-lg "
+            className="mt-6 bg-blue-700 hover:bg-blue-600 cursor-pointer block w-full text-white py-2 rounded-lg "
             value="Sign Up"
           />
           <Typography color="gray" className="mt-4 text-center font-normal">

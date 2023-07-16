@@ -3,8 +3,8 @@ import React from "react";
 const LocationMap = () => {
   return (
     <div className="my-12">
-      <div className="text-center mb-4 grid gap-4 font-mono">
-        <h1 className="text-3xl text-blue-500 font-serif">
+      <div className="text-center mb-4 grid gap-4 ">
+        <h1 className="text-3xl text-blue-500 ">
           Daffodil International University
         </h1>
         <p>Daffodil Smart City (DSC)</p>

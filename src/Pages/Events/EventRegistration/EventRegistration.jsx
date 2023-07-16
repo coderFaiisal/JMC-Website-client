@@ -1,20 +1,46 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Card,
   Input,
-  Checkbox,
   Typography,
   Select,
   Option,
 } from "@material-tailwind/react";
 import { AuthContext } from "../../../Context/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
 
 const EventRegistration = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const eventId = useParams();
+  console.log(eventId);
+  const { data: event = [], isLoading } = useQuery({
+    queryKey: ["event"],
+    queryFn: async () => {
+      const res = await fetch(
+        `http://localhost:5000/api/v1/upcomingEvent/${eventId?.id}`
+      );
+      const data = await res.json();
+      return data;
+    },
+  });
+  console.log(event);
+
+  const {
+    _id,
+    title,
+    photoURL,
+    description,
+    location,
+    organizer,
+    registration,
+    speakers,
+    date,
+    time,
+    price,
+  } = event;
 
   const {
     register,
@@ -42,17 +68,19 @@ const EventRegistration = () => {
           className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
         >
           <div className="mb-4 flex flex-col gap-6">
+            <Input defaultValue={title} disabled type="text" size="lg" />
             <Input
-              defaultValue={"Workshop on TV Journalism"}
+              defaultValue={price ? price : 0}
               disabled
               type="text"
               size="lg"
             />
-            <Input defaultValue={"50 tk"} disabled type="text" size="lg" />
             <Input
               {...register("name", {
                 required: "Name is required",
               })}
+              defaultValue={user?.displayName}
+              disabled
               type="text"
               size="lg"
               label="Your Name"
@@ -68,6 +96,8 @@ const EventRegistration = () => {
                   message: "Invalid email type",
                 },
               })}
+              defaultValue={user?.email}
+              disabled
               type="email"
               size="lg"
               label="Email"

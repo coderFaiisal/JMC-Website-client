@@ -5,7 +5,9 @@ import HomeShowreel from "../HomeShowreel/HomeShowreel";
 import HomeEvents from "../HomeEvents/HomeEvents";
 import HomeTalentHunt from "../HomeTalentHunt/HomeTalentHunt";
 import HomeQuickLink from "../HomeQuickLink/HomeQuickLink";
-import HomeOnlineCourse from "../HomeOnlineCourse/HomeOnlineCourse";
+import HomeCDSTF from "../HomeCDSTF/HomeCDSTF";
+import HomeCurriculumSymposium from "../HomeCurriculumSymposium/HomeCurriculumSymposium";
+import StudyInfo from "../StudyInfo/StudyInfo";
 
 const Home = () => {
   useEffect(() => {
@@ -15,11 +17,12 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <HomeEvents></HomeEvents>
-      <HomeMediaBuzz></HomeMediaBuzz>
-      <HomeShowreel></HomeShowreel>
       <HomeTalentHunt></HomeTalentHunt>
+      <HomeMediaBuzz></HomeMediaBuzz>
+      <HomeCDSTF></HomeCDSTF>
+      <HomeShowreel></HomeShowreel>
+      <StudyInfo></StudyInfo>
       <HomeQuickLink></HomeQuickLink>
-      <HomeOnlineCourse></HomeOnlineCourse>
     </div>
   );
 };

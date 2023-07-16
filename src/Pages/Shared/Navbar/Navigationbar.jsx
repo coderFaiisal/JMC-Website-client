@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import logo from "../../../assets/logo.png";
 import {
   Navbar,
-  MobileNav,
   Typography,
   Button,
   Menu,
@@ -11,27 +10,29 @@ import {
   MenuItem,
   Avatar,
   IconButton,
+  Collapse,
 } from "@material-tailwind/react";
 import {
   UserCircleIcon,
   Square3Stack3DIcon,
   ChevronDownIcon,
-  Cog6ToothIcon,
-  LifebuoyIcon,
   PowerIcon,
   Bars3Icon,
-  FilmIcon,
-  CalendarDaysIcon,
-  VideoCameraIcon,
+  IdentificationIcon,
+  ClipboardDocumentListIcon,
+  DocumentIcon,
+  TableCellsIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
+import useAdmin from "../../../hooks/useAdmin";
 
 // Profile menu component
 const ProfileMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
   const { user, logoutUser } = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user.email);
 
   const handleSignOut = () => {
     logoutUser()
@@ -67,15 +68,31 @@ const ProfileMenu = () => {
         </Button>
       </MenuHandler>
       <MenuList className="p-1" onClick={closeMenu}>
-        <MenuItem className={`flex items-center gap-2 rounded`}>
-          {React.createElement(UserCircleIcon, {
-            className: `h-4 w-4`,
-            strokeWidth: 2,
-          })}
-          <Typography as="span" variant="small" className="font-normal">
-            My Profile
-          </Typography>
-        </MenuItem>
+        <Link to="/profile">
+          <MenuItem className={`flex items-center gap-2 rounded`}>
+            {React.createElement(UserCircleIcon, {
+              className: `h-4 w-4`,
+              strokeWidth: 2,
+            })}
+            <Typography as="span" variant="small" className="font-normal">
+              My Profile
+            </Typography>
+          </MenuItem>
+        </Link>
+
+        {isAdmin && (
+          <Link to="/dashboard">
+            <MenuItem className={`flex items-center gap-2 rounded`}>
+              {React.createElement(TableCellsIcon, {
+                className: `h-4 w-4`,
+                strokeWidth: 2,
+              })}
+              <Typography as="span" variant="small" className="font-normal">
+                Dashboard
+              </Typography>
+            </MenuItem>
+          </Link>
+        )}
         <MenuItem
           onClick={handleSignOut}
           className={`flex items-center gap-2 rounded hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10`}
@@ -95,22 +112,20 @@ const ProfileMenu = () => {
 
 // Nav list menu
 const navListMenuItems = [
-  <Link to="/history">Our History </Link>,
-  <Link to="/faculty">Faculty</Link>,
-  <Link to="/notice">Notice</Link>,
-  <Link to="studentStories">Student Stories</Link>,
-  <Link to="/talent">Talent Hunt</Link>,
-  <Link to="/alumni">Alumni</Link>,
-  <Link to="/research">Research</Link>,
-  <Link to="alumniStories"> Alumni Stories</Link>,
-  <Link to="programs">Programs</Link>,
-  <Link to="community">Community</Link>,
-  <Link to="lifeBlog">Student Life Blog</Link>,
-  <Link to="facultyStories">Faculty Stories</Link>,
-  <Link to="/admissions">Admissions</Link>,
-  <Link to="/affiliation">Affiliation</Link>,
-  <Link to="/exhibition">Photo Exhibition</Link>,
-  <Link to="/dashboard">Dashboard</Link>,
+  { item: "Research", link: "/research" },
+  { item: "Faculty", link: "/faculty" },
+  { item: "Student Stories", link: "/studentStories" },
+  { item: "Student Life Blog", link: "/lifeBlog" },
+
+  { item: "Projects", link: "/project" },
+  { item: "Alumni", link: "/alumni" },
+  { item: "Alumni Stories", link: "/alumniStories" },
+  { item: "Photo Exhibition", link: "/photoExhibition" },
+
+  { item: "International Collaboration", link: "/affiliation" },
+  { item: "Community", link: "/community" },
+  { item: "Faculty Stories", link: "/facultyStories" },
+  { item: "Video Exhibition", link: "/videoExhibition" },
 ];
 
 const NavListMenu = () => {
@@ -121,9 +136,9 @@ const NavListMenu = () => {
     onMouseLeave: () => setIsMenuOpen(false),
   };
 
-  const renderItems = navListMenuItems.map((item, idx) => (
-    <Link key={idx}>
-      <MenuItem>
+  const renderItems = navListMenuItems.map(({ item, link }, idx) => (
+    <Link to={link} key={idx}>
+      <MenuItem className="w-44">
         <Typography
           variant="h6"
           color="blue-gray"
@@ -139,11 +154,7 @@ const NavListMenu = () => {
     <React.Fragment>
       <Menu open={isMenuOpen} handler={setIsMenuOpen}>
         <MenuHandler>
-          <Typography
-            as="a"
-            variant="small"
-            className="font-normal text-lg"
-          >
+          <Typography variant="small" className="font-normal text-lg">
             <MenuItem
               {...triggers}
               className="hidden items-center gap-2 text-blue-gray-900 lg:flex lg:rounded-full"
@@ -176,27 +187,28 @@ const NavListMenu = () => {
 
 // Nav list component
 const navListItems = [
-  [<Link to="/mediaBuzz">Media Buzz</Link>, FilmIcon],
-  [<Link to="/events">Events</Link>, CalendarDaysIcon],
-  [<Link to="/showreel">Showreel</Link>, VideoCameraIcon],
+  { item: "About Us", link: "/about", icon: IdentificationIcon },
+  { item: "Programs", link: "/programs", icon: ClipboardDocumentListIcon },
+  { item: "Admissions", link: "/admissions", icon: DocumentIcon },
 ];
 
 const NavList = () => {
   return (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
-      {navListItems.map(([item, icon], idx) => (
-        <Typography
-          key={idx}
-          as="a"
-          variant="small"
-          color="blue-gray"
-          className="font-normal text-lg"
-        >
-          <MenuItem className="flex items-center gap-2 lg:rounded-full">
-            {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
-            {item}
-          </MenuItem>
-        </Typography>
+      {navListItems.map(({ item, link, icon }, idx) => (
+        <Link to={link} key={idx}>
+          <Typography
+            as="a"
+            variant="small"
+            color="blue-gray"
+            className="font-normal text-lg"
+          >
+            <MenuItem className="flex items-center gap-2 w-36 lg:rounded-full">
+              {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
+              {item}
+            </MenuItem>
+          </Typography>
+        </Link>
       ))}
       <NavListMenu />
     </ul>
@@ -216,7 +228,7 @@ const Navigationbar = () => {
   }, []);
 
   return (
-    <Navbar className="mx-auto p-2 rounded-none lg:pl-6 sticky   inset-0 z-20 px-4 lg:px-8">
+    <Navbar className="mx-auto p-2 rounded-none lg:pl-6 sticky inset-0 z-20 px-4 lg:px-8">
       <div className="relative mx-auto flex items-center text-blue-gray-900">
         <Typography
           as="a"
@@ -241,14 +253,14 @@ const Navigationbar = () => {
         {user?.uid ? (
           <ProfileMenu />
         ) : (
-          <div className="py-1 px-2 absolute right-12 mg:right-16 lg:right-0 rounded-md outline outline-1 text-blue-600 hover:bg-blue-gray-50 font-serif">
+          <div className="py-1 px-2 absolute right-12 mg:right-16 lg:right-0 rounded-md  bg-blue-500  text-white ">
             <Link to="signin">Sign In</Link>
           </div>
         )}
       </div>
-      <MobileNav open={isNavOpen} className="overflow-scroll">
+      <Collapse open={isNavOpen} className="overflow-scroll">
         <NavList />
-      </MobileNav>
+      </Collapse>
     </Navbar>
   );
 };
