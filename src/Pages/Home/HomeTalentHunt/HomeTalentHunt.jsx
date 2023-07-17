@@ -23,13 +23,13 @@ const HomeTalentHunt = () => {
           <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
         </CardHeader>
         <CardBody className="relative py-14 px-6 md:px-12">
-          <Typography className="mb-6 text-5xl text-white font-bold leading-[1.5] capitalize ">
+          <Typography className="mb-6 text-3xl lg:text-5xl text-white font-bold leading-[1.5] capitalize ">
             Want to be a media star?
           </Typography>
-          <Typography className="text-white  text-3xl font-bold">
+          <Typography className="text-white text-2xl lg:text-3xl font-bold">
             Confirm Your Sit
           </Typography>
-          <Link to='/talent'>
+          <Link to="/talent">
             <button className="mt-6 bg-white text-black hover:bg-black shadow-sm shadow-white hover:text-white w-36 h-10 ">
               Registration
             </button>

@@ -8,17 +8,17 @@ import {
 
 const StudyInfo = () => {
   return (
-    <section className=" bg-black min-h-screen text-white flex justify-center gap-10 p-20">
+    <section className=" bg-black min-h-screen text-white lg:flex justify-center gap-10 p-20">
       <div>
         <h1 className="text-3xl text-center mb-2">PROGRAMS</h1>
-        <div className="grid gap-4">
+        <div className="grid gap-4 justify-center">
           <a
             href="https://daffodilvarsity.edu.bd/department/jmc/program/14/1/undergraduate"
             target="_blank"
           >
-            <div className="text-white border text-2xl flex gap-4 items-center w-96 py-6 px-2">
+            <div className="text-white border text-2xl flex gap-4 items-center justify-self-center w-96 py-6 px-2">
               <AcademicCapIcon className="w-14 h-14" />
-              <h1 className="ml-6">UNDERGRADUATE</h1>
+              <h1 className="lg:ml-6">UNDERGRADUATE</h1>
             </div>
           </a>
 
@@ -34,8 +34,8 @@ const StudyInfo = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-3xl text-center mb-2">ADMISSION</h1>
-        <div className="grid gap-4">
+        <h1 className="text-3xl text-center mt-8 lg:mt-0 mb-2">ADMISSION</h1>
+        <div className="grid gap-4 justify-center">
           <a
             href="https://pd.daffodilvarsity.edu.bd/admission/online"
             target="_blank"
@@ -65,7 +65,7 @@ const StudyInfo = () => {
               <h1 className="ml-12">ELIGIBILITY</h1>
             </div>
           </a>
-          
+
           <a
             href="https://daffodilvarsity.edu.bd/dept/jmc/scholarship/diu-scholarship"
             target="_blank"
