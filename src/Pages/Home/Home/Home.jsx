@@ -6,10 +6,11 @@ import HomeEvents from "../HomeEvents/HomeEvents";
 import HomeTalentHunt from "../HomeTalentHunt/HomeTalentHunt";
 import HomeQuickLink from "../HomeQuickLink/HomeQuickLink";
 import HomeCDSTF from "../HomeCDSTF/HomeCDSTF";
-import HomeCurriculumSymposium from "../HomeCurriculumSymposium/HomeCurriculumSymposium";
 import StudyInfo from "../StudyInfo/StudyInfo";
+import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
+  useTitle("Home");
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

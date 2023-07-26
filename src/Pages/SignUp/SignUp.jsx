@@ -5,8 +5,10 @@ import { toast } from "react-hot-toast";
 import { Card, Input, Checkbox, Typography } from "@material-tailwind/react";
 import { AuthContext } from "../../Context/AuthProvider";
 import useToken from "../../hooks/useToken";
+import useTitle from "../../hooks/useTitle";
 
 const SignUp = () => {
+  useTitle("Sign Up");
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const [createdUserEmail, setCreatedUserEmail] = useState("");

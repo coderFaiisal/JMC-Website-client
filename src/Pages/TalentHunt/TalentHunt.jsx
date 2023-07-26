@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
+import useTitle from "../../hooks/useTitle";
 
 const TalentHunt = () => {
+  useTitle("Media Star");
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

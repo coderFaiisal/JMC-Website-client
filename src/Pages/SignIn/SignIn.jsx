@@ -10,11 +10,12 @@ import {
   Dialog,
   CardBody,
   CardFooter,
-  Button,
 } from "@material-tailwind/react";
 import useToken from "../../hooks/useToken";
+import useTitle from "../../hooks/useTitle";
 
 const SignIn = () => {
+  useTitle("Sign In")
   const { signInUser, signInWithGoogle, resetPassword } =
     useContext(AuthContext);
 

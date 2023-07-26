@@ -1,7 +1,8 @@
-import { Input } from "@material-tailwind/react";
 import React, { useEffect } from "react";
+import useTitle from "../../../hooks/useTitle";
 
 const Dashboard = () => {
+  useTitle("Dashboard");
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -37,7 +38,6 @@ const Dashboard = () => {
             <p className="text-4xl font-bold">5</p>
           </div>
         </div>
-       
       </div>
     </div>
   );

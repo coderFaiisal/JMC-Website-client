@@ -10,8 +10,10 @@ import {
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../components/Loading";
+import useTitle from "../../../hooks/useTitle";
 
 const MediaBuzzMain = () => {
+  useTitle("Media Buzz");
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -25,7 +27,9 @@ const MediaBuzzMain = () => {
   } = useQuery({
     queryKey: ["allMediaBuzz"],
     queryFn: async () => {
-      const res = await fetch("https://jmc-web-server.vercel.app/api/v1/mediaBuzz");
+      const res = await fetch(
+        "https://jmc-web-server.vercel.app/api/v1/mediaBuzz"
+      );
       const data = await res.json();
       return data;
     },
